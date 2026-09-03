@@ -147,6 +147,17 @@ a { color: inherit; }
 
 /* ── Hero ───────────────────────────────────────────────────── */
 .hero { padding-block: var(--section-v); }
+.hero__inner {
+  display: grid; grid-template-columns: 1fr; gap: clamp(2rem, 5vw, 3rem); align-items: center;
+}
+@media (min-width: 700px) {
+  .hero__inner { grid-template-columns: 7fr 5fr; }
+}
+.hero__image {
+  width: 100%; max-width: 320px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px;
+  margin-inline: auto;
+}
+@media (min-width: 700px) { .hero__image { margin-inline: 0; max-width: none; } }
 .hero__eyebrow {
   font-size: 0.78rem; font-weight: 500; color: var(--col-water); margin-bottom: 1.1rem;
 }
@@ -156,7 +167,7 @@ a { color: inherit; }
   color: var(--col-ink); margin-bottom: 1.5rem;
 }
 .hero__headline em { font-style: normal; color: var(--col-water); }
-.hero__body { max-width: 540px; font-size: clamp(1rem, 2vw, 1.15rem); color: var(--col-muted); margin-bottom: 2rem; }
+.hero__body { max-width: 480px; font-size: clamp(1rem, 2vw, 1.15rem); color: var(--col-muted); margin-bottom: 2rem; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.875rem; }
 
 /* ── Credentials strip ──────────────────────────────────────── */
