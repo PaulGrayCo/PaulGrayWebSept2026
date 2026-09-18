@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Current long course swimming world records, men's and women's, plus who's on top in open water — kept for swimmers and parents to browse.">
+  <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0C1820" media="(prefers-color-scheme: dark)">
+  <title>World Records | Paul Gray — Swim Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ============================================================
+       ADDITIVE ONLY — records.html specific components.
+       Uses existing design tokens from style.css; does not
+       override or redeclare anything in the shared file.
+       ============================================================ */
+
+    .record-item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem 1.25rem;
+      padding: 0.95rem 1.1rem;
+      background: var(--col-surface);
+      border-radius: 6px;
+    }
+    .record-item__text { flex: 1; min-width: 200px; }
+    .record-item__event {
+      font-weight: 600;
+      color: var(--col-ink);
+      font-size: 0.95rem;
+    }
+    .record-item__name { color: var(--col-ink); }
+    .record-item__meta {
+      display: block;
+      font-size: 0.83rem;
+      color: var(--col-muted);
+      margin-top: 0.15rem;
+    }
+    .record-item__value {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--col-water);
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+    .badge-ss {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-left: 6px;
+      background: var(--col-water-light);
+      color: var(--col-water-hover);
+      vertical-align: 1px;
+    }
+    .record-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 0.875rem;
+    }
+    .stat-card {
+      padding: 1.1rem 1.2rem;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--col-border);
+      border-radius: 6px;
+    }
+    @media (prefers-color-scheme: dark) {
+      .stat-card { background: rgba(12, 24, 32, 0.7); }
+    }
+    .stat-card__num {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 2rem;
+      color: var(--col-ink);
+      line-height: 1;
+    }
+    .stat-card__num span { color: var(--col-water); }
+    .stat-card__label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--col-muted);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+
+    .ow-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.875rem;
+    }
+    @media (max-width: 600px) {
+      .ow-columns { grid-template-columns: 1fr; }
+      .record-item { flex-direction: column; align-items: flex-start; }
+      .record-item__value { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav" role="banner">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Paul Gray — home">
+        Paul Gray
+        <span>Swim Coach · Tempe, Sydney</span>
+      </a>
+      <nav style="display: flex; gap: 1rem; align-items: center;">
+        <a href="records.html" style="color: var(--col-water); text-decoration: none; font-size: 0.9rem; font-weight: 500;">World Records</a>
+        <a href="resources.html" style="color: var(--col-water); text-decoration: none; font-size: 0.9rem; font-weight: 500;">Resources</a>
+        <a href="index.html#contact" class="btn btn--primary nav__cta">Get in touch →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="resources" aria-labelledby="records-heading">
+      <div class="container">
+
+        <div class="resources__header">
+          <p class="section-label">Reference</p>
+          <h1 id="records-heading">World records.</h1>
+          <p>
+            Every current long course world record, kept up to date for anyone I coach — and
+            their parents — to browse. A good way to see what "fast" actually looks like at
+            the very top of the sport, and how much the record book has moved just in the
+            last couple of years.
+          </p>
+        </div>
+
+        <div class="stat-strip" style="margin-bottom: clamp(2.5rem, 5vw, 3.5rem);">
+          <div class="stat-card">
+            <span class="stat-card__num"><span>3</span> / 14</span>
+            <span class="stat-card__label">Men's records still from the 2009 "supersuit" era</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__num"><span>0</span> / 14</span>
+            <span class="stat-card__label">Women's records left from that era — all broken now</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__num"><span>7</span></span>
+            <span class="stat-card__label">Individual world records held by Summer McIntosh alone</span>
+          </div>
+        </div>
+
+        <!-- MEN'S RECORDS -->
+        <div class="resource-group">
+          <h2>Men's Individual Records</h2>
+          <div class="record-list">
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">50 Free</span> — <span class="record-item__name">Cam McEvoy</span>
+                <span class="record-item__meta">🇦🇺 China Open, Mar 2026 · broke Cielo's 20.91 <span class="badge-ss">ss 2009</span></span>
+              </div>
+              <div class="record-item__value">20.88</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">100 Free</span> — <span class="record-item__name">Pan Zhanle</span>
+                <span class="record-item__meta">🇨🇳 Paris 2024</span>
+              </div>
+              <div class="record-item__value">46.40</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">200 Free</span> — <span class="record-item__name">Paul Biedermann</span>
+                <span class="record-item__meta">🇩🇪 Rome, Jul 2009 · never broken <span class="badge-ss">ss 2009</span></span>
+              </div>
+              <div class="record-item__value">1:42.00</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">400 Free</span> — <span class="record-item__name">Lukas Märtens</span>
+                <span class="record-item__meta">🇩🇪 Stockholm, Apr 2025</span>
+              </div>
+              <div class="record-item__value">3:39.96</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">800 Free</span> — <span class="record-item__name">Zhang Lin</span>
+                <span class="record-item__meta">🇨🇳 Rome, Jul 2009 · never broken <span class="badge-ss">ss 2009</span></span>
+              </div>
+              <div class="record-item__value">7:32.12</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">1500 Free</span> — <span class="record-item__name">Johannes Liebmann</span>
+                <span class="record-item__meta">🇩🇪 Paris, Aug 2026 · set this year</span>
+              </div>
+              <div class="record-item__value">14:26.79</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">100 Back</span> — <span class="record-item__name">Thomas Ceccon</span>
+                <span class="record-item__meta">🇮🇹 Budapest, Jun 2022 · broke Peirsol's 52.19 <span class="badge-ss">ss 2009</span></span>
+              </div>
+              <div class="record-item__value">51.60</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">200 Back</span> — <span class="record-item__name">Aaron Peirsol</span>
+                <span class="record-item__meta">🇺🇸 Rome, Jul 2009 · never broken <span class="badge-ss">ss 2009</span></span>
+              </div>
+              <div class="record-item__value">1:51.92</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">100 Breast</span> — <span class="record-item__name">Adam Peaty</span>
+                <span class="record-item__meta">🇬🇧 Gwangju, Jul 2019</span>
+              </div>
+              <div class="record-item__value">56.88</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">200 Breast</span> — <span class="record-item__name">Qin Haiyang</span>
+                <span class="record-item__meta">🇨🇳 Fukuoka, Jul 2023</span>
+              </div>
+              <div class="record-item__value">2:05.48</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">100 Fly</span> — <span class="record-item__name">Caeleb Dressel</span>
+                <span class="record-item__meta">🇺🇸 Tokyo, Jul 2021</span>
+              </div>
+              <div class="record-item__value">49.45</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">200 Fly</span> — <span class="record-item__name">Kristóf Milák</span>
+                <span class="record-item__meta">🇭🇺 Budapest, Jun 2022</span>
+              </div>
+              <div class="record-item__value">1:50.34</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">200 IM</span> — <span class="record-item__name">Léon Marchand</span>
+                <span class="record-item__meta">🇫🇷 Singapore, Jul 2025 · broke Lochte's 2011 mark</span>
+              </div>
+              <div class="record-item__value">1:52.69</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">400 IM</span> — <span class="record-item__name">Léon Marchand</span>
+                <span class="record-item__meta">🇫🇷 Fukuoka, Jul 2023 · broke Phelps' 4:03.84 <span class="badge-ss">ss 2008</span></span>
+              </div>
+              <div class="record-item__value">4:02.50</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- WOMEN'S RECORDS -->
+        <div class="resource-group">
+          <h2>Women's Individual Records</h2>
+          <div class="record-list">
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">50 Free</span> — <span class="record-item__name">Kate Douglass</span>
+                <span class="record-item__meta">🇺🇸 Pan Pacs, Aug 2026</span>
+              </div>
+              <div class="record-item__value">23.19</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">100 Free</span> — <span class="record-item__name">Marrit Steenbergen</span>
+                <span class="record-item__meta">🇳🇱 Rome, Jun 2026</span>
+              </div>
+              <div class="record-item__value">51.68</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">200 Free</span> — <span class="record-item__name">Ariarne Titmus</span>
+                <span class="record-item__meta">🇦🇺 Brisbane, Jun 2024</span>
+              </div>
+              <div class="record-item__value">1:52.23</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">400 Free</span> — <span class="record-item__name">Summer McIntosh</span>
+                <span class="record-item__meta">🇨🇦 Victoria, Jun 2025</span>
+              </div>
+              <div class="record-item__value">3:54.18</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">800 Free</span> — <span class="record-item__name">Katie Ledecky</span>
+                <span class="record-item__meta">🇺🇸 Fort Lauderdale, May 2025</span>
+              </div>
+              <div class="record-item__value">8:04.12</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">1500 Free</span> — <span class="record-item__name">Katie Ledecky</span>
+                <span class="record-item__meta">🇺🇸 Indianapolis, May 2018 · standing 8 years</span>
+              </div>
+              <div class="record-item__value">15:20.48</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">100 Back</span> — <span class="record-item__name">Regan Smith</span>
+                <span class="record-item__meta">🇺🇸 Indianapolis, Jun 2024</span>
+              </div>
+              <div class="record-item__value">57.13</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">200 Back</span> — <span class="record-item__name">Kaylee McKeown</span>
+                <span class="record-item__meta">🇦🇺 Sydney, Mar 2023</span>
+              </div>
+              <div class="record-item__value">2:03.14</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">100 Breast</span> — <span class="record-item__name">Lilly King</span>
+                <span class="record-item__meta">🇺🇸 Budapest, Jul 2017</span>
+              </div>
+              <div class="record-item__value">1:04.13</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">200 Breast</span> — <span class="record-item__name">Evgeniia Chikunova</span>
+                <span class="record-item__meta">🇷🇺 Kazan, Apr 2023</span>
+              </div>
+              <div class="record-item__value">2:17.55</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">100 Fly</span> — <span class="record-item__name">Gretchen Walsh</span>
+                <span class="record-item__meta">🇺🇸 Fort Lauderdale, May 2026 · 3rd time breaking it in 12 months</span>
+              </div>
+              <div class="record-item__value">54.33</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">200 Fly</span> — <span class="record-item__name">Summer McIntosh</span>
+                <span class="record-item__meta">🇨🇦 Montreal, Jul 2026 · broke Liu Zige's 2:01.81 <span class="badge-ss">ss 2009</span> — last one standing</span>
+              </div>
+              <div class="record-item__value">2:01.65</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">200 IM</span> — <span class="record-item__name">Summer McIntosh</span>
+                <span class="record-item__meta">🇨🇦 Victoria, Jun 2025</span>
+              </div>
+              <div class="record-item__value">2:05.70</div>
+            </div>
+
+            <div class="record-item">
+              <div class="record-item__text">
+                <span class="record-item__event">400 IM</span> — <span class="record-item__name">Summer McIntosh</span>
+                <span class="record-item__meta">🇨🇦 Victoria, Jun 2025</span>
+              </div>
+              <div class="record-item__value">4:23.65</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- OPEN WATER -->
+        <div class="resource-group">
+          <h2>Open Water — 10km</h2>
+          <p style="color: var(--col-muted); font-size: 0.92rem; margin-bottom: 1rem;">
+            There's no official "world record" in open water — conditions vary too much
+            from race to race — so this is who currently tops the rankings instead.
+          </p>
+          <div class="ow-columns">
+            <div class="record-list">
+              <div class="record-item"><div class="record-item__text"><span class="record-item__event">Men</span> — <span class="record-item__name">Florian Wellbrock</span><span class="record-item__meta">🇩🇪 Swept 10km, 5km &amp; sprint at 2025 Worlds</span></div></div>
+              <div class="record-item"><div class="record-item__text"><span class="record-item__name">Kristóf Rasovszky</span><span class="record-item__meta">🇭🇺 Reigning Olympic champion</span></div></div>
+              <div class="record-item"><div class="record-item__text"><span class="record-item__name">Gregorio Paltrinieri</span><span class="record-item__meta">🇮🇹 Elder statesman of the trio</span></div></div>
+            </div>
+            <div class="record-list">
+              <div class="record-item"><div class="record-item__text"><span class="record-item__event">Women</span> — <span class="record-item__name">Moesha Johnson</span><span class="record-item__meta">🇦🇺 Won every 2026 World Cup stop</span></div></div>
+              <div class="record-item"><div class="record-item__text"><span class="record-item__name">Ginevra Taddeucci</span><span class="record-item__meta">🇮🇹 2025 World Cup overall winner</span></div></div>
+              <div class="record-item"><div class="record-item__text"><span class="record-item__name">Caroline Jouisse</span><span class="record-item__meta">🇫🇷 Consistent podium threat</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <p style="color: var(--col-muted); font-size: 0.8rem; margin-top: 2.5rem;">
+          Compiled from World Aquatics ratified records and recent competition results, September 2026.
+          Records change fast at this level — check worldaquatics.com for anything time-sensitive.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <p class="footer__logo">PAUL GRAY <span>Swim Coach</span></p>
+      <p class="footer__meta">
+        <span>© 2026 Paul Gray</span>
+        <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
