@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,8 +38,8 @@
           <h1 class="hero__headline">Swim coach.<br>Building <em>what's next</em>.</h1>
           <p class="hero__body">
             I coach learn-to-swim through competitive squads at Col Jones Swim Fitness.
-            I'm also putting together something for coaches, teachers and instructors —
-            more on that below. This page is a simple placeholder while both take shape.
+            Also working on something for coaches, teachers and instructors —
+            more on that below. This page is a holding site whilst both take shape.
           </p>
           <div class="hero__actions">
             <a href="#contact" class="btn btn--primary">Get in touch →</a>
@@ -89,25 +89,47 @@
       </div>
     </section>
 
+    <!-- WHO I WORK WITH -->
+    <section style="padding-block: var(--section-v);">
+      <div class="container">
+        <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.95; margin-bottom: 2rem;">Who I work with.</h2>
+
+        <details class="accordion-item">
+          <summary class="accordion-header">Learn-to-Swim (all ages)</summary>
+          <div class="accordion-content">
+            <p>From water familiarisation through to confident freestyle, backstroke, breaststroke and butterfly. I work with children and adults at all stages — whether it's your first time in the pool or you're refining technique after years away.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-header">Development &amp; Competitive Squads</summary>
+          <div class="accordion-content">
+            <p>Training swimmers who are moving into club competition or already racing at state and national level. Focus on building proper stroke mechanics, race strategy, and the mental side of performance under pressure.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-header">Adult Fitness Swimmers</summary>
+          <div class="accordion-content">
+            <p>Structured sessions for adults training for fitness, triathlons, or ocean swims. Emphasis on sustainable technique, injury prevention, and progressive training loads that fit around work and life.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
     <!-- COACH COMMUNITY TEASER -->
     <section class="teaser" id="notify" aria-label="Coach community notice">
       <div class="container">
         <h2 class="teaser__heading">Something for coaches is coming.</h2>
         <p class="teaser__sub">
-          A place for coaches, teachers and instructors to share what actually works
+          A place for coaches, teachers and instructors to share what works
           on deck — discipline, connection, trust, and the craft side of coaching that
-          rarely gets taught properly. Not live yet. Want to know when it is?
+          isn't taught in accreditation courses. Not live yet. Interested?
         </p>
 
-        <!--
-          CONVERTKIT — WAITLIST FORM
-          Create a separate form in ConvertKit (distinct from your newsletter form)
-          and tag subscribers "waitlist" so you can message them separately later.
-          Swap the data-uid below for that form's embed code.
-        -->
         <script async data-uid="REPLACE_WITH_WAITLIST_FORM_UID" src="https://paulgray.kit.com/REPLACE_WITH_WAITLIST_FORM_UID/index.js"></script>
 
-        <p class="teaser__note">No spam. You'll hear from me when there's something real to share.</p>
+        <p class="teaser__note">No spam. Updates only when there's something ready.</p>
       </div>
     </section>
 
@@ -118,14 +140,13 @@
         <div class="contact__info">
           <h2 id="contact-heading">Get in touch.</h2>
           <p>Questions about coaching, this site, or anything else — email works best.</p>
-          <p>I aim to reply within a couple of days.</p>
+          <p>I'll reply within a few days.</p>
           <div class="contact__details">
             <div class="contact__detail">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,13 2,6"/>
               </svg>
-              <!-- UPDATE: confirm this is the address you want public -->
               <a href="mailto:paul@paulgray.com.au">paul@paulgray.com.au</a>
             </div>
             <div class="contact__detail">
@@ -140,12 +161,10 @@
 
         <div class="contact__form-wrapper">
           <form class="contact-form" id="contactForm">
-            <!-- WEB3FORMS — replace with your real access key from web3forms.com -->
             <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_ACCESS_KEY">
             <input type="hidden" name="subject" value="New enquiry from paulgray.com.au">
             <input type="hidden" name="from_name" value="Paul Gray site — contact form">
 
-            <!-- Honeypot: real users never fill this in; bots often do -->
             <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off">
 
             <div class="form-row">
@@ -163,14 +182,6 @@
               <textarea id="cf-message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
             </div>
 
-            <!--
-              CAPTCHA (optional but requested): in your Web3Forms dashboard, open this
-              form's settings and enable "hCaptcha". Once enabled, uncomment the two
-              lines below — Web3Forms injects the widget automatically via this script.
-            -->
-            <!-- <script src="https://web3forms.com/client/script.js" async defer></script> -->
-            <!-- <div class="h-captcha" data-captcha="true"></div> -->
-
             <button type="submit" class="btn btn--primary btn--full">Send message →</button>
           </form>
         </div>
@@ -185,7 +196,6 @@
       <p class="footer__logo">PAUL GRAY <span>Swim Coach</span></p>
       <p class="footer__meta">
         <span>© 2026 Paul Gray</span>
-        <!-- UPDATE: swap # for real profile URLs -->
         <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </p>
@@ -193,7 +203,6 @@
   </footer>
 
   <script>
-    // Web3Forms — AJAX submit, no page reload
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', async (e) => {
@@ -217,7 +226,7 @@
 
           if (result.success) {
             contactForm.closest('.contact__form-wrapper').innerHTML =
-              '<div class="form-success-block"><p class="form-success">Got it — I\'ll be in touch soon. 👋</p></div>';
+              '<div class="form-success-block"><p class="form-success">Received — I\'ll be in touch soon. 👋</p></div>';
           } else {
             throw new Error(result.message || 'Submission failed');
           }
