@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Current long course swimming world records, men's and women's, plus who's on top in open water - kept for swimmers and parents to browse.">
+  <meta name="description" content="Swimming world records, elite swimmers to be inspired by, essential viewing, and competition calendar - a hub for swimmers, coaches and parents.">
   <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0C1820" media="(prefers-color-scheme: dark)">
-  <title>Swimming Records | Paul Gray - Swim Coach</title>
+  <title>Swimming Records & Inspiration | Paul Gray - Swim Coach</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -98,6 +98,131 @@
       grid-template-columns: 1fr 1fr;
       gap: 0.875rem;
     }
+
+    /* Swimmer profiles */
+    .swimmer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .swimmer-card {
+      padding: 1.25rem;
+      background: var(--col-surface);
+      border: 1px solid var(--col-border);
+      border-radius: 6px;
+    }
+    .swimmer-card__header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .swimmer-card__flag {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .swimmer-card__name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      color: var(--col-ink);
+      line-height: 1.2;
+    }
+    .swimmer-card__country {
+      font-size: 0.75rem;
+      color: var(--col-muted);
+      display: block;
+    }
+    .swimmer-card__bio {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--col-muted);
+    }
+
+    /* Video embeds */
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .video-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .video-item__embed {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--col-surface);
+    }
+    .video-item__embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-item__title {
+      font-weight: 600;
+      color: var(--col-ink);
+      font-size: 1rem;
+    }
+    .video-item__desc {
+      font-size: 0.9rem;
+      color: var(--col-muted);
+      line-height: 1.6;
+    }
+
+    /* Calendar */
+    .calendar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .calendar-item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem 1rem;
+      padding: 1rem 1.1rem;
+      background: var(--col-surface);
+      border-radius: 6px;
+      border-left: 3px solid var(--col-water);
+    }
+    .calendar-item__text { flex: 1; min-width: 200px; }
+    .calendar-item__name {
+      font-weight: 600;
+      color: var(--col-ink);
+      font-size: 0.95rem;
+    }
+    .calendar-item__meta {
+      display: block;
+      font-size: 0.83rem;
+      color: var(--col-muted);
+      margin-top: 0.15rem;
+    }
+    .calendar-item__date {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--col-water);
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 700px) {
+      .video-grid { gap: 2rem; }
+      .swimmer-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 600px) {
       .ow-columns { grid-template-columns: 1fr; }
       .record-item { flex-direction: column; align-items: flex-start; }
@@ -114,7 +239,7 @@
         <span>Swim Coach · Tempe, Sydney</span>
       </a>
       <nav style="display: flex; gap: 1rem; align-items: center;">
-        <a href="records.html" style="color: var(--col-water); text-decoration: none; font-size: 0.9rem; font-weight: 500;">Swimming Records</a>
+        <a href="records.html" style="color: var(--col-water); text-decoration: none; font-size: 0.9rem; font-weight: 500;">Records & Inspiration</a>
         <a href="resources.html" style="color: var(--col-water); text-decoration: none; font-size: 0.9rem; font-weight: 500;">Resources</a>
         <a href="index.html#contact" class="btn btn--primary nav__cta">Get in touch →</a>
       </nav>
@@ -123,17 +248,405 @@
 
   <main>
 
+    <!-- HERO -->
     <section class="resources" aria-labelledby="records-heading">
       <div class="container">
 
         <div class="resources__header">
-          <p class="section-label">Reference</p>
-          <h1 id="records-heading">Swimming world records.</h1>
+          <p class="section-label">Inspiration & Reference</p>
+          <h1 id="records-heading">Swimming records & inspiration.</h1>
           <p>
-            Every current long course world record, kept up to date for swimmers I coach - and
-            their parents - to browse. A good way to see what "fast" looks like at
-            the very top of the sport, and how much the record book has moved in the
-            last few years.
+            A mini-hub for swimmers, coaches and parents to find inspiration, up-to-date information,
+            and guidance for the world of competitive swimming. Every current long course world record,
+            elite swimmers redefining the sport, essential viewing, and upcoming major competitions.
+          </p>
+        </div>
+
+        <!-- SWIMMERS TO BE INSPIRED BY -->
+        <div class="resource-group" style="margin-bottom: clamp(3rem, 6vw, 4.5rem);">
+          <h2>Swimmers to be inspired by</h2>
+          <p style="color: var(--col-muted); font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.5rem; max-width: 720px;">
+            The international competitive swimming landscape features an exceptional generation of athletes
+            routinely shattering world records and sweeping major titles. These swimmers represent the
+            pinnacle of modern swimming across sprint, distance, and medley disciplines.
+          </p>
+
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; color: var(--col-water); margin-bottom: 1rem; margin-top: 2rem;">Elite Men</h3>
+          <div class="swimmer-grid">
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇫🇷</span>
+                <div>
+                  <div class="swimmer-card__name">Léon Marchand</div>
+                  <span class="swimmer-card__country">France</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                The undisputed king of the individual medley and breaststroke. Back-to-back World Aquatics Male Swimmer of the Year,
+                Marchand holds the legendary 400m IM world record and dominates multiple disciplines under elite pacing.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇨🇳</span>
+                <div>
+                  <div class="swimmer-card__name">Pan Zhanle</div>
+                  <span class="swimmer-card__country">China</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                The fastest man in water, holding the mind-boggling 100m freestyle long-course world record at a blazing 46.40 seconds.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇿🇦</span>
+                <div>
+                  <div class="swimmer-card__name">Pieter Coetze</div>
+                  <span class="swimmer-card__country">South Africa</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                The rising backstroke superstar who captured the overall title at the 2026 World Aquatics Swimming World Cup tour,
+                proving his short-course and long-course mastery over the world's best.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇭🇺</span>
+                <div>
+                  <div class="swimmer-card__name">Kristóf Milák</div>
+                  <span class="swimmer-card__country">Hungary</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                A butterfly virtuoso who continues to put on a clinic in the 100m and 200m fly. He holds the record for the
+                most sub-51-second long-course 100m butterfly performances in history.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇭🇺</span>
+                <div>
+                  <div class="swimmer-card__name">Hubert Kós</div>
+                  <span class="swimmer-card__country">Hungary</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                A lethal backstroke and individual medley technician training in the US collegiate system,
+                routinely breaking short-course metres (SCM) records in the 100 and 200 backstroke.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇦🇺</span>
+                <div>
+                  <div class="swimmer-card__name">Cameron McEvoy</div>
+                  <span class="swimmer-card__country">Australia</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                The veteran speed-demon who revolutionised ultra-short-distance training, remaining a dominant force
+                in the 50m freestyle world rankings and recently breaking the long-standing world record.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇨🇦</span>
+                <div>
+                  <div class="swimmer-card__name">Josh Liendo</div>
+                  <span class="swimmer-card__country">Canada</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                A dominant force in sprint fly and freestyle. Liendo holds the short-course 100m butterfly world record (47.68)
+                and electrified the international stage with a blistering 50.42 Commonwealth Games gold in Glasgow.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇺🇸</span>
+                <div>
+                  <div class="swimmer-card__name">Ilya Kharun</div>
+                  <span class="swimmer-card__country">USA</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                Having recently transitioned from Canada to Team USA, this butterfly phenom continuously rewrites history,
+                lowering the SCM 50m butterfly U.S. Open and American record down to a stunning 21.41 seconds.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇰🇾</span>
+                <div>
+                  <div class="swimmer-card__name">Jordan Crooks</div>
+                  <span class="swimmer-card__country">Cayman Islands</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                One of the most explosive sprinters the NCAA and short-course circuits have ever seen. After a brief hiatus,
+                Crooks returned for Tennessee and took down Hubert Kós's U.S. Open record in the 50m backstroke (22.60).
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇺🇸</span>
+                <div>
+                  <div class="swimmer-card__name">Carson Foster</div>
+                  <span class="swimmer-card__country">USA</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                The ultimate tactical ironman in the individual medleys and mid-distance freestyle. Foster is a consistent
+                world-class podium fixture, regularly challenging the likes of Marchand in the gruelling 400m IM.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇷🇺</span>
+                <div>
+                  <div class="swimmer-card__name">Egor Kornev</div>
+                  <span class="swimmer-card__country">Russia</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                A rising backstroke talent making waves on the international circuit with exceptional technical precision
+                and emerging as a serious contender in both 100m and 200m backstroke events.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇬🇧</span>
+                <div>
+                  <div class="swimmer-card__name">Adam Ramsay-Peaty</div>
+                  <span class="swimmer-card__country">Great Britain</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                The legendary breaststroke king—who added the surname Ramsay following his marriage—launched a
+                20-month hiatus comeback. At 31, the multi-time Olympic champion took bronze in Glasgow and is targeting LA 2028.
+              </p>
+            </div>
+
+          </div>
+
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; color: var(--col-water); margin-bottom: 1rem; margin-top: 2.5rem;">Elite Women</h3>
+          <div class="swimmer-grid">
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇨🇦</span>
+                <div>
+                  <div class="swimmer-card__name">Summer McIntosh</div>
+                  <span class="swimmer-card__country">Canada</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                A generational prodigy and dominant multi-event weapon. McIntosh rules the women's landscape across the
+                200m/400m individual medleys and butterfly events, regularly trading Female Swimmer of the Year honours.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇺🇸</span>
+                <div>
+                  <div class="swimmer-card__name">Kate Douglass</div>
+                  <span class="swimmer-card__country">USA</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                A versatile Swiss Army knife of swimming who recently rewrote history by smashing the 50m freestyle world record (23.19).
+                She handles world-class times in everything from sprint freestyle to the 200m breaststroke.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇳🇱</span>
+                <div>
+                  <div class="swimmer-card__name">Marrit Steenbergen</div>
+                  <span class="swimmer-card__country">Netherlands</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                Fresh off securing the overall 2026 Swimming World Cup women's title, she is a dominant powerhouse
+                in the 100m freestyle, holding a new short-course world record of 50.52 seconds.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇺🇸</span>
+                <div>
+                  <div class="swimmer-card__name">Gretchen Walsh</div>
+                  <span class="swimmer-card__country">USA</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                The supreme underwater and butterfly technician who consistently pushes sprint boundaries,
+                driving teammates and competitors to world-record times.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇦🇺</span>
+                <div>
+                  <div class="swimmer-card__name">Kaylee McKeown</div>
+                  <span class="swimmer-card__country">Australia</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                An absolute titan of backstroke. McKeown holds the rare distinction of simultaneously controlling the
+                50m, 100m, and 200m backstroke world records while expanding her range into elite breaststroke and medley events.
+              </p>
+            </div>
+
+            <div class="swimmer-card">
+              <div class="swimmer-card__header">
+                <span class="swimmer-card__flag">🇺🇸</span>
+                <div>
+                  <div class="swimmer-card__name">Katie Ledecky</div>
+                  <span class="swimmer-card__country">USA</span>
+                </div>
+              </div>
+              <p class="swimmer-card__bio">
+                The greatest distance swimmer of all time. Ledecky continues to rewrite longevity records,
+                maintaining an iron grip on the 800m and 1500m freestyle events globally.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ESSENTIAL VIEWING -->
+        <div class="resource-group" style="margin-bottom: clamp(3rem, 6vw, 4.5rem);">
+          <h2>Essential Viewing</h2>
+          <p style="color: var(--col-muted); font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.5rem; max-width: 720px;">
+            Curated videos showcasing world-class technique, race analysis, and performances that define modern competitive swimming.
+          </p>
+
+          <div class="video-grid">
+            <div class="video-item">
+              <div class="video-item__embed">
+                <iframe src="https://www.youtube.com/embed/oCNx8Xa-oug" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <div>
+                <div class="video-item__title">Race Analysis & Technique Breakdown</div>
+                <p class="video-item__desc">
+                  In-depth analysis of elite-level racing strategy, stroke mechanics, and tactical execution at the highest level of competition.
+                </p>
+              </div>
+            </div>
+
+            <div class="video-item">
+              <div class="video-item__embed">
+                <iframe src="https://www.youtube.com/embed/pAXA6buCbpY" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <div>
+                <div class="video-item__title">World-Class Performance</div>
+                <p class="video-item__desc">
+                  Watch the technical precision and power that separates world-record performances from the competition.
+                </p>
+              </div>
+            </div>
+
+            <div class="video-item">
+              <div class="video-item__embed">
+                <iframe src="https://www.youtube.com/embed/spyPDF8KL4Q" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <div>
+                <div class="video-item__title">Training Insights & Methodology</div>
+                <p class="video-item__desc">
+                  Behind-the-scenes look at the training approaches and methodology used by elite swimmers and their coaches.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPETITION CALENDAR -->
+        <div class="resource-group" style="margin-bottom: clamp(3rem, 6vw, 4.5rem);">
+          <h2>Major Competition Calendar</h2>
+          <p style="color: var(--col-muted); font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.5rem; max-width: 720px;">
+            Upcoming major international and regional competitions. Dates and venues are subject to change—always verify with official sources.
+          </p>
+
+          <div class="calendar-list">
+            <div class="calendar-item">
+              <div class="calendar-item__text">
+                <span class="calendar-item__name">World Aquatics Championships</span>
+                <span class="calendar-item__meta">Singapore · Long Course</span>
+              </div>
+              <span class="calendar-item__date">Jul 2027</span>
+            </div>
+
+            <div class="calendar-item">
+              <div class="calendar-item__text">
+                <span class="calendar-item__name">Australian Swimming Championships</span>
+                <span class="calendar-item__meta">Brisbane · National Trials</span>
+              </div>
+              <span class="calendar-item__date">Apr 2027</span>
+            </div>
+
+            <div class="calendar-item">
+              <div class="calendar-item__text">
+                <span class="calendar-item__name">NSW Long Course Championships</span>
+                <span class="calendar-item__meta">Sydney Olympic Park Aquatic Centre</span>
+              </div>
+              <span class="calendar-item__date">Mar–Apr 2027</span>
+            </div>
+
+            <div class="calendar-item">
+              <div class="calendar-item__text">
+                <span class="calendar-item__name">World Aquatics Swimming World Cup</span>
+                <span class="calendar-item__meta">Multiple Cities · Short Course</span>
+              </div>
+              <span class="calendar-item__date">Oct–Nov 2027</span>
+            </div>
+
+            <div class="calendar-item">
+              <div class="calendar-item__text">
+                <span class="calendar-item__name">Pan Pacific Championships</span>
+                <span class="calendar-item__meta">TBD · Long Course</span>
+              </div>
+              <span class="calendar-item__date">Aug 2028</span>
+            </div>
+
+            <div class="calendar-item">
+              <div class="calendar-item__text">
+                <span class="calendar-item__name">Olympic Games</span>
+                <span class="calendar-item__meta">Los Angeles, USA</span>
+              </div>
+              <span class="calendar-item__date">Jul–Aug 2028</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="lane-rope"></div>
+
+        <!-- WORLD RECORDS SECTION -->
+        <div class="resources__header" style="margin-bottom: clamp(2rem, 5vw, 3rem);">
+          <p class="section-label">All Current World Records</p>
+          <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.95; margin-bottom: 1.5rem;">Long Course Records.</h2>
+          <p style="max-width: 620px;">
+            Every current long course world record. A reference to see what "fast" looks like at
+            the very top of the sport, and how much the record book has moved in recent years.
           </p>
         </div>
 
@@ -144,7 +657,7 @@
           </div>
           <div class="stat-card">
             <span class="stat-card__num"><span>0</span> / 14</span>
-            <span class="stat-card__label">Women's records left from that era - all broken now</span>
+            <span class="stat-card__label">Women's records left from that era—all broken now</span>
           </div>
           <div class="stat-card">
             <span class="stat-card__num"><span>7</span></span>
@@ -394,10 +907,10 @@
 
         <!-- OPEN WATER -->
         <div class="resource-group">
-          <h2>Open Water - 10km</h2>
+          <h2>Open Water — 10km</h2>
           <p style="color: var(--col-muted); font-size: 0.92rem; margin-bottom: 1rem;">
-            There's no official "world record" in open water - conditions vary too much
-            from race to race - so this lists who currently tops the rankings instead.
+            There's no official "world record" in open water—conditions vary too much
+            from race to race—so this lists who currently tops the rankings instead.
           </p>
           <div class="ow-columns">
             <div class="record-list">
@@ -414,8 +927,8 @@
         </div>
 
         <p style="color: var(--col-muted); font-size: 0.8rem; margin-top: 2.5rem;">
-          Compiled from World Aquatics ratified records and recent competition results, September 2026.
-          Records change fast at this level - check worldaquatics.com for anything time-sensitive.
+          Compiled from World Aquatics ratified records and recent competition results, November 2026.
+          Records change fast at this level—check worldaquatics.com for anything time-sensitive.
         </p>
 
       </div>
