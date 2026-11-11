@@ -239,5 +239,31 @@
     }
   </script>
 
+  <!-- Subtle Parallax Effect for Hero Image -->
+  <script>
+    (function() {
+      const heroImage = document.querySelector('.hero__image');
+      if (!heroImage) return;
+
+      let ticking = false;
+
+      function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const parallaxSpeed = 0.3;
+        heroImage.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+        ticking = false;
+      }
+
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', requestTick, { passive: true });
+    })();
+  </script>
+
 </body>
 </html>
